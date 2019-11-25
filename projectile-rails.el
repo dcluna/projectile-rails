@@ -226,6 +226,11 @@
   :group 'projectile-rails
   :type 'string)
 
+(defcustom projectile-rails-console-buffer-name "rails"
+  "The default buffer name for rails console."
+  :group 'projectile-rails
+  :type 'string)
+
 (defcustom projectile-rails-vanilla-command "bundle exec rails"
   "The command for rails."
   :group 'projectile-rails
@@ -834,7 +839,7 @@ ROOT is used to expand the relative files."
           (if (>= (or (car arg) 0) 4)
               (read-string "rails console: " rails-console-command)
             rails-console-command)
-          "rails"))
+          projectile-rails-console-buffer-name))
      (projectile-rails-mode +1))))
 
 ;; Shamelessly stolen from rinari.el
